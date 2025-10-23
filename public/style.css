@@ -1,0 +1,124 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  background: #0c0f14;
+  color: #e6e6e6;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+}
+
+/* Full-viewport canvas */
+#viewport {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* HUD (top-left) */
+#hud {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  gap: 16px;
+  z-index: 10;
+  user-select: none;
+  pointer-events: none;
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+#hud > div {
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(6px);
+  padding: 10px 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+}
+
+.legend .x { color: #ff6b6b; font-weight: 700; margin-right: 8px; }
+.legend .y { color: #51cf66; font-weight: 700; margin-right: 8px; }
+.legend .z { color: #4dabf7; font-weight: 700; }
+
+/* Right-side control panel */
+#panel {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  width: 340px;
+  max-height: calc(100vh - 24px);
+  overflow: auto;
+  z-index: 12;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 8px 10px;
+}
+
+#panel details {
+  margin: 6px 0;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  padding: 6px 10px;
+}
+
+#panel summary {
+  cursor: pointer;
+  font-weight: 700;
+  padding: 4px 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 150px;
+  gap: 10px;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.row label {
+  font-size: 12px;
+  color: #cfd6e1;
+}
+
+input, select, button {
+  font: inherit;
+  color: #e6e6e6;
+  background: #121723;
+  border: 1px solid #2a3142;
+  border-radius: 8px;
+  padding: 6px 8px;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid #3a4358;
+  background: linear-gradient(#1a2030, #141a27);
+}
+
+button:hover {
+  border-color: #4a5470;
+}
+
+button.ghost {
+  background: transparent;
+}
+
+.modes {
+  display: flex;
+  gap: 10px;
+}
+
+#vector-readout {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #b8c1d1;
+}
+
+.help {
+  margin: 6px 0 2px 0;
+  font-size: 12px;
+  color: #9ba6bb;
+}

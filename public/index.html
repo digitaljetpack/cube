@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>3D Cube Viewer — Vector + Axis Labels + Dimensions + Projections</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="hud">
+      <div>
+        <strong>Controls</strong><br/>
+        Middle: Pan • Right: Rotate • Wheel: Zoom
+      </div>
+      <div class="legend">
+        <span class="x">X</span><span class="y">Y</span><span class="z">Z</span>
+      </div>
+    </div>
+
+    <div id="panel">
+      <details open>
+        <summary>View</summary>
+        <div class="row">
+          <button id="reset-view">Reset View</button>
+        </div>
+      </details>
+
+      <details open>
+        <summary>Axis Labels</summary>
+        <div class="row">
+          <label>Positive X label</label>
+          <select id="label-x">
+            <option value="X" selected>X</option>
+            <option value="Y">Y</option>
+            <option value="Z">Z</option>
+          </select>
+        </div>
+        <div class="row">
+          <label>Positive Y label</label>
+          <select id="label-y">
+            <option value="Y" selected>Y</option>
+            <option value="X">X</option>
+            <option value="Z">Z</option>
+          </select>
+        </div>
+        <div class="row">
+          <label>Positive Z label</label>
+          <select id="label-z">
+            <option value="Z" selected>Z</option>
+            <option value="X">X</option>
+            <option value="Y">Y</option>
+          </select>
+        </div>
+      </details>
+
+      <details open>
+        <summary>Vector from Origin</summary>
+        <div class="row">
+          <label>Units (display only)</label>
+          <input id="units" value="m" />
+        </div>
+
+        <div class="row">
+          <label>Input Mode</label>
+          <div class="modes">
+            <label><input type="radio" name="mode" value="cartesian" checked/> Cartesian</label>
+            <label><input type="radio" name="mode" value="angles" /> Angles</label>
+          </div>
+        </div>
+
+        <div id="cartesian">
+          <div class="row">
+            <label>X</label><input id="cx" type="number" step="0.1" value="2" />
+          </div>
+          <div class="row">
+            <label>Y</label><input id="cy" type="number" step="0.1" value="1" />
+          </div>
+          <div class="row">
+            <label>Z</label><input id="cz" type="number" step="0.1" value="1.5" />
+          </div>
+        </div>
+
+        <div id="angles" style="display:none">
+          <p class="help">
+            Azimuth = yaw around +Y from +X (deg). Elevation = pitch above XZ plane (deg).
+          </p>
+          <div class="row">
+            <label>Range</label><input id="ar" type="number" step="0.1" value="3" />
+          </div>
+          <div class="row">
+            <label>Azimuth (°)</label><input id="aaz" type="number" step="1" value="35" />
+          </div>
+          <div class="row">
+            <label>Elevation (°)</label><input id="ael" type="number" step="1" value="20" />
+          </div>
+        </div>
+
+        <div class="row">
+          <button id="update-vector">Draw Vector</button>
+          <button id="clear-vector" class="ghost">Clear</button>
+        </div>
+
+        <div class="row">
+          <label>Show projections (XY/XZ/YZ)</label>
+          <input id="show-projections" type="checkbox" checked />
+        </div>
+
+        <div id="vector-readout"></div>
+      </details>
+
+      <details open>
+        <summary>Cube Dimensions</summary>
+        <div class="row">
+          <label>Width (X)</label><input id="bw" type="number" step="0.1" value="2" />
+        </div>
+        <div class="row">
+          <label>Height (Y)</label><input id="bh" type="number" step="0.1" value="2" />
+        </div>
+        <div class="row">
+          <label>Depth (Z)</label><input id="bd" type="number" step="0.1" value="2" />
+        </div>
+        <div class="row">
+          <button id="apply-box">Apply Dimensions</button>
+        </div>
+      </details>
+    </div>
+
+    <canvas id="viewport"></canvas>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

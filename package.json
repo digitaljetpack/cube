@@ -1,0 +1,14 @@
+{
+  "name": "three-cube-viewer",
+  "version": "1.0.0",
+  "description": "Minimal Node server hosting a Three.js cube with custom mouse bindings.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "three": "^0.180.0"
+  }
+}
